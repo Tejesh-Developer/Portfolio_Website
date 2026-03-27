@@ -117,7 +117,11 @@
   .proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px;margin-top:52px}
   .proj-card{border-radius:16px;overflow:hidden;border:1px solid #B5D4F4;background:#fff;transition:all .3s;cursor:pointer}
   .proj-card:hover{box-shadow:0 16px 50px rgba(24,95,165,0.18);transform:translateY(-6px)}
-  .proj-thumb{height:190px;display:flex;align-items:center;justify-content:center}
+  .proj-thumb{height:220px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+  .proj-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease;display:block}
+  .proj-card:hover .proj-thumb img{transform:scale(1.06)}
+  .proj-thumb-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(4,44,83,0.1) 0%,rgba(4,44,83,0.5) 100%);transition:opacity .3s;pointer-events:none}
+  .proj-thumb-badge{position:absolute;top:14px;left:14px;background:rgba(255,255,255,0.15);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.25);border-radius:6px;padding:4px 10px;font-size:10px;font-weight:700;color:#fff;letter-spacing:1px;text-transform:uppercase;z-index:2}
   .proj-letter{font-family:'Syne',sans-serif;font-size:72px;font-weight:800;color:rgba(255,255,255,0.2)}
   .proj-body{padding:22px 24px}
   .proj-label{font-size:11px;color:#185FA5;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:7px}
@@ -372,8 +376,76 @@
       <p class="section-sub light-sub">A selection of recent work across web development, design, and AI automation.</p>
     </div>
     <div class="proj-grid">
+
+      <!-- E-Commerce — Bright colorful shopping UI -->
       <div class="proj-card reveal">
-        <div class="proj-thumb" style="background:linear-gradient(135deg,#0C447C,#378ADD)"><span class="proj-letter">E</span></div>
+        <div class="proj-thumb">
+          <svg viewBox="0 0 600 240" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block">
+            <defs>
+              <linearGradient id="ec-bg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#FF6B6B"/><stop offset="50%" stop-color="#FF8E53"/><stop offset="100%" stop-color="#FFC300"/></linearGradient>
+              <linearGradient id="ec-card" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#fff"/><stop offset="100%" stop-color="#FFF5F0"/></linearGradient>
+              <filter id="shadow1"><feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="rgba(0,0,0,0.15)"/></filter>
+            </defs>
+            <!-- Background -->
+            <rect width="600" height="240" fill="url(#ec-bg)"/>
+            <!-- Decorative circles -->
+            <circle cx="520" cy="30" r="60" fill="rgba(255,255,255,0.08)"/>
+            <circle cx="80" cy="200" r="50" fill="rgba(255,255,255,0.06)"/>
+            <!-- Browser bar -->
+            <rect x="40" y="20" width="520" height="200" rx="12" fill="white" filter="url(#shadow1)"/>
+            <rect x="40" y="20" width="520" height="36" rx="12" fill="#F8F9FA"/>
+            <rect x="40" y="44" width="520" height="12" fill="#F8F9FA"/>
+            <!-- Browser dots -->
+            <circle cx="62" cy="38" r="6" fill="#FF5F57"/><circle cx="82" cy="38" r="6" fill="#FFBD2E"/><circle cx="102" cy="38" r="6" fill="#28C840"/>
+            <!-- URL bar -->
+            <rect x="130" y="29" width="280" height="18" rx="9" fill="#E9ECEF"/>
+            <text x="270" y="42" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#888">shopnow.com</text>
+            <!-- Nav inside browser -->
+            <rect x="40" y="56" width="520" height="30" fill="#FF6B35"/>
+            <text x="80" y="76" font-family="sans-serif" font-size="11" font-weight="bold" fill="white">ShopNow</text>
+            <text x="220" y="76" font-family="sans-serif" font-size="9" fill="rgba(255,255,255,0.85)">Men</text>
+            <text x="260" y="76" font-family="sans-serif" font-size="9" fill="rgba(255,255,255,0.85)">Women</text>
+            <text x="305" y="76" font-family="sans-serif" font-size="9" fill="rgba(255,255,255,0.85)">Electronics</text>
+            <text x="360" y="76" font-family="sans-serif" font-size="9" fill="rgba(255,255,255,0.85)">Sale</text>
+            <!-- Cart icon -->
+            <rect x="510" y="61" width="36" height="20" rx="4" fill="rgba(255,255,255,0.2)"/>
+            <text x="528" y="75" text-anchor="middle" font-family="sans-serif" font-size="9" fill="white">🛒 3</text>
+            <!-- Product cards -->
+            <rect x="55" y="96" width="105" height="130" rx="8" fill="url(#ec-card)" filter="url(#shadow1)"/>
+            <rect x="60" y="100" width="95" height="70" rx="5" fill="#FFE4D6"/>
+            <text x="107" y="143" text-anchor="middle" font-size="28">👟</text>
+            <text x="107" y="186" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#333" font-weight="600">Nike Air Max</text>
+            <text x="107" y="198" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#FF6B35" font-weight="bold">₹4,999</text>
+            <rect x="65" y="207" width="85" height="14" rx="7" fill="#FF6B35"/>
+            <text x="107" y="218" text-anchor="middle" font-family="sans-serif" font-size="8" fill="white" font-weight="600">Add to Cart</text>
+
+            <rect x="175" y="96" width="105" height="130" rx="8" fill="url(#ec-card)" filter="url(#shadow1)"/>
+            <rect x="180" y="100" width="95" height="70" rx="5" fill="#E8F4FD"/>
+            <text x="227" y="143" text-anchor="middle" font-size="28">📱</text>
+            <text x="227" y="186" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#333" font-weight="600">iPhone 15 Pro</text>
+            <text x="227" y="198" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#FF6B35" font-weight="bold">₹1,19,999</text>
+            <rect x="185" y="207" width="85" height="14" rx="7" fill="#FF6B35"/>
+            <text x="227" y="218" text-anchor="middle" font-family="sans-serif" font-size="8" fill="white" font-weight="600">Add to Cart</text>
+
+            <rect x="295" y="96" width="105" height="130" rx="8" fill="url(#ec-card)" filter="url(#shadow1)"/>
+            <rect x="300" y="100" width="95" height="70" rx="5" fill="#F0FFF4"/>
+            <text x="347" y="143" text-anchor="middle" font-size="28">👜</text>
+            <text x="347" y="186" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#333" font-weight="600">Gucci Bag</text>
+            <text x="347" y="198" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#FF6B35" font-weight="bold">₹24,999</text>
+            <rect x="305" y="207" width="85" height="14" rx="7" fill="#FF6B35"/>
+            <text x="347" y="218" text-anchor="middle" font-family="sans-serif" font-size="8" fill="white" font-weight="600">Add to Cart</text>
+
+            <rect x="415" y="96" width="105" height="130" rx="8" fill="url(#ec-card)" filter="url(#shadow1)"/>
+            <rect x="420" y="100" width="95" height="70" rx="5" fill="#FFF9E6"/>
+            <text x="467" y="143" text-anchor="middle" font-size="28">⌚</text>
+            <text x="467" y="186" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#333" font-weight="600">Apple Watch</text>
+            <text x="467" y="198" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#FF6B35" font-weight="bold">₹45,999</text>
+            <rect x="425" y="207" width="85" height="14" rx="7" fill="#FF6B35"/>
+            <text x="467" y="218" text-anchor="middle" font-family="sans-serif" font-size="8" fill="white" font-weight="600">Add to Cart</text>
+          </svg>
+          <div class="proj-thumb-overlay"></div>
+          <span class="proj-thumb-badge">Web Dev</span>
+        </div>
         <div class="proj-body">
           <div class="proj-label">Web Development</div>
           <h3>Full-Stack E-Commerce Platform</h3>
@@ -381,8 +453,75 @@
           <div class="proj-stack"><span class="stack-tag">React</span><span class="stack-tag">Node.js</span><span class="stack-tag">MongoDB</span><span class="stack-tag">Stripe</span></div>
         </div>
       </div>
+
+      <!-- AI Content Generator — Colorful AI chat UI -->
       <div class="proj-card reveal" style="transition-delay:.1s">
-        <div class="proj-thumb" style="background:linear-gradient(135deg,#064E3B,#1D9E75)"><span class="proj-letter">A</span></div>
+        <div class="proj-thumb">
+          <svg viewBox="0 0 600 240" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block">
+            <defs>
+              <linearGradient id="ai-bg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#667EEA"/><stop offset="50%" stop-color="#764BA2"/><stop offset="100%" stop-color="#F093FB"/></linearGradient>
+              <filter id="shadow2"><feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="rgba(0,0,0,0.2)"/></filter>
+            </defs>
+            <rect width="600" height="240" fill="url(#ai-bg)"/>
+            <!-- Floating orbs -->
+            <circle cx="80" cy="60" r="40" fill="rgba(255,255,255,0.07)"/>
+            <circle cx="520" cy="180" r="55" fill="rgba(255,255,255,0.06)"/>
+            <circle cx="300" cy="20" r="25" fill="rgba(255,255,255,0.05)"/>
+            <!-- Main panel -->
+            <rect x="30" y="18" width="540" height="204" rx="14" fill="rgba(15,10,30,0.75)" filter="url(#shadow2)"/>
+            <!-- Header -->
+            <rect x="30" y="18" width="540" height="38" rx="14" fill="rgba(255,255,255,0.08)"/>
+            <rect x="30" y="44" width="540" height="12" fill="rgba(255,255,255,0.08)"/>
+            <circle cx="55" cy="37" r="10" fill="url(#ai-bg)"/>
+            <text x="55" y="41" text-anchor="middle" font-family="sans-serif" font-size="10" fill="white" font-weight="bold">AI</text>
+            <text x="75" y="34" font-family="sans-serif" font-size="11" font-weight="bold" fill="white">ContentGPT</text>
+            <text x="75" y="46" font-family="sans-serif" font-size="8" fill="rgba(255,255,255,0.5)">AI Content Generator</text>
+            <circle cx="540" cy="37" r="5" fill="#4ADE80"/>
+            <!-- Prompt input -->
+            <rect x="46" y="64" width="508" height="28" rx="8" fill="rgba(255,255,255,0.06)" stroke="rgba(103,78,234,0.6)" stroke-width="1.5"/>
+            <text x="58" y="82" font-family="sans-serif" font-size="9" fill="rgba(255,255,255,0.4)">Write a blog post about AI trends in 2025...</text>
+            <rect x="524" y="68" width="22" height="20" rx="6" fill="url(#ai-bg)"/>
+            <text x="535" y="81" text-anchor="middle" font-family="sans-serif" font-size="9" fill="white">→</text>
+            <!-- Output cards -->
+            <rect x="46" y="100" width="155" height="110" rx="8" fill="rgba(255,255,255,0.06)" stroke="rgba(240,147,251,0.3)" stroke-width="1"/>
+            <rect x="52" y="106" width="80" height="8" rx="4" fill="#F093FB" opacity="0.7"/>
+            <text x="102" y="114" font-family="sans-serif" font-size="7" fill="#F093FB">BLOG POST</text>
+            <rect x="52" y="120" width="140" height="5" rx="2" fill="rgba(255,255,255,0.3)"/>
+            <rect x="52" y="130" width="120" height="5" rx="2" fill="rgba(255,255,255,0.2)"/>
+            <rect x="52" y="140" width="135" height="5" rx="2" fill="rgba(255,255,255,0.2)"/>
+            <rect x="52" y="150" width="100" height="5" rx="2" fill="rgba(255,255,255,0.2)"/>
+            <rect x="52" y="160" width="125" height="5" rx="2" fill="rgba(255,255,255,0.15)"/>
+            <rect x="52" y="170" width="110" height="5" rx="2" fill="rgba(255,255,255,0.15)"/>
+            <rect x="52" y="184" width="60" height="16" rx="8" fill="rgba(240,147,251,0.2)" stroke="rgba(240,147,251,0.4)" stroke-width="1"/>
+            <text x="82" y="195" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#F093FB">Copy ✓</text>
+
+            <rect x="216" y="100" width="155" height="110" rx="8" fill="rgba(255,255,255,0.06)" stroke="rgba(103,78,234,0.3)" stroke-width="1"/>
+            <rect x="222" y="106" width="70" height="8" rx="4" fill="#667EEA" opacity="0.8"/>
+            <text x="257" y="114" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#93C5FD">EMAIL COPY</text>
+            <rect x="222" y="120" width="138" height="5" rx="2" fill="rgba(255,255,255,0.3)"/>
+            <rect x="222" y="130" width="115" height="5" rx="2" fill="rgba(255,255,255,0.2)"/>
+            <rect x="222" y="140" width="130" height="5" rx="2" fill="rgba(255,255,255,0.2)"/>
+            <rect x="222" y="150" width="105" height="5" rx="2" fill="rgba(255,255,255,0.2)"/>
+            <rect x="222" y="160" width="120" height="5" rx="2" fill="rgba(255,255,255,0.15)"/>
+            <rect x="222" y="170" width="95" height="5" rx="2" fill="rgba(255,255,255,0.15)"/>
+            <rect x="222" y="184" width="60" height="16" rx="8" fill="rgba(103,78,234,0.2)" stroke="rgba(103,78,234,0.4)" stroke-width="1"/>
+            <text x="252" y="195" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#93C5FD">Copy ✓</text>
+
+            <rect x="386" y="100" width="155" height="110" rx="8" fill="rgba(255,255,255,0.06)" stroke="rgba(74,222,128,0.3)" stroke-width="1"/>
+            <rect x="392" y="106" width="90" height="8" rx="4" fill="#4ADE80" opacity="0.7"/>
+            <text x="437" y="114" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#4ADE80">SOCIAL MEDIA</text>
+            <rect x="392" y="120" width="140" height="5" rx="2" fill="rgba(255,255,255,0.3)"/>
+            <rect x="392" y="130" width="118" height="5" rx="2" fill="rgba(255,255,255,0.2)"/>
+            <rect x="392" y="140" width="132" height="5" rx="2" fill="rgba(255,255,255,0.2)"/>
+            <rect x="392" y="150" width="108" height="5" rx="2" fill="rgba(255,255,255,0.2)"/>
+            <rect x="392" y="160" width="122" height="5" rx="2" fill="rgba(255,255,255,0.15)"/>
+            <rect x="392" y="170" width="100" height="5" rx="2" fill="rgba(255,255,255,0.15)"/>
+            <rect x="392" y="184" width="60" height="16" rx="8" fill="rgba(74,222,128,0.15)" stroke="rgba(74,222,128,0.4)" stroke-width="1"/>
+            <text x="422" y="195" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#4ADE80">Copy ✓</text>
+          </svg>
+          <div class="proj-thumb-overlay"></div>
+          <span class="proj-thumb-badge">AI Tool</span>
+        </div>
         <div class="proj-body">
           <div class="proj-label">AI Automation</div>
           <h3>AI Content Generator</h3>
@@ -390,8 +529,96 @@
           <div class="proj-stack"><span class="stack-tag">Python</span><span class="stack-tag">OpenAI</span><span class="stack-tag">FastAPI</span><span class="stack-tag">React</span></div>
         </div>
       </div>
+
+      <!-- SaaS Dashboard — Rich colorful analytics -->
       <div class="proj-card reveal" style="transition-delay:.15s">
-        <div class="proj-thumb" style="background:linear-gradient(135deg,#1E1B4B,#7C3AED)"><span class="proj-letter">S</span></div>
+        <div class="proj-thumb">
+          <svg viewBox="0 0 600 240" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block">
+            <defs>
+              <linearGradient id="db-bg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0F0C29"/><stop offset="50%" stop-color="#302B63"/><stop offset="100%" stop-color="#24243E"/></linearGradient>
+              <linearGradient id="db-line" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#F093FB"/><stop offset="100%" stop-color="#F5576C"/></linearGradient>
+              <linearGradient id="db-area" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="rgba(240,147,251,0.4)"/><stop offset="100%" stop-color="rgba(240,147,251,0)"/></linearGradient>
+              <filter id="shadow3"><feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="rgba(0,0,0,0.3)"/></filter>
+            </defs>
+            <rect width="600" height="240" fill="url(#db-bg)"/>
+            <!-- Sidebar -->
+            <rect x="0" y="0" width="80" height="240" fill="rgba(255,255,255,0.04)"/>
+            <circle cx="40" cy="30" r="14" fill="url(#db-line)" opacity="0.8"/>
+            <text x="40" y="35" text-anchor="middle" font-family="sans-serif" font-size="10" fill="white" font-weight="bold">S</text>
+            <rect x="15" y="56" width="50" height="24" rx="6" fill="rgba(240,147,251,0.15)"/>
+            <text x="40" y="72" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#F093FB">📊 Dash</text>
+            <text x="40" y="96" text-anchor="middle" font-family="sans-serif" font-size="7" fill="rgba(255,255,255,0.4)">📈 Stats</text>
+            <text x="40" y="116" text-anchor="middle" font-family="sans-serif" font-size="7" fill="rgba(255,255,255,0.4)">👥 Users</text>
+            <text x="40" y="136" text-anchor="middle" font-family="sans-serif" font-size="7" fill="rgba(255,255,255,0.4)">💰 Rev</text>
+            <text x="40" y="156" text-anchor="middle" font-family="sans-serif" font-size="7" fill="rgba(255,255,255,0.4)">⚙️ Set</text>
+            <!-- Top header -->
+            <rect x="80" y="0" width="520" height="34" fill="rgba(255,255,255,0.03)"/>
+            <text x="100" y="21" font-family="sans-serif" font-size="12" font-weight="bold" fill="white">Analytics Dashboard</text>
+            <rect x="480" y="7" width="24" height="20" rx="5" fill="rgba(255,255,255,0.06)"/>
+            <text x="492" y="21" text-anchor="middle" font-family="sans-serif" font-size="9" fill="rgba(255,255,255,0.6)">🔔</text>
+            <circle cx="545" cy="17" r="10" fill="url(#db-line)" opacity="0.7"/>
+            <text x="545" y="21" text-anchor="middle" font-family="sans-serif" font-size="8" fill="white">TK</text>
+            <!-- Stat cards -->
+            <rect x="88" y="40" width="108" height="50" rx="8" fill="rgba(240,147,251,0.12)" stroke="rgba(240,147,251,0.25)" stroke-width="1" filter="url(#shadow3)"/>
+            <text x="100" y="57" font-family="sans-serif" font-size="8" fill="rgba(240,147,251,0.7)">Total Revenue</text>
+            <text x="100" y="74" font-family="sans-serif" font-size="16" font-weight="bold" fill="white">₹8.4L</text>
+            <text x="170" y="74" font-family="sans-serif" font-size="7" fill="#4ADE80">↑24%</text>
+
+            <rect x="204" y="40" width="108" height="50" rx="8" fill="rgba(74,222,128,0.1)" stroke="rgba(74,222,128,0.25)" stroke-width="1" filter="url(#shadow3)"/>
+            <text x="216" y="57" font-family="sans-serif" font-size="8" fill="rgba(74,222,128,0.7)">Active Users</text>
+            <text x="216" y="74" font-family="sans-serif" font-size="16" font-weight="bold" fill="white">12,483</text>
+            <text x="286" y="74" font-family="sans-serif" font-size="7" fill="#4ADE80">↑18%</text>
+
+            <rect x="320" y="40" width="108" height="50" rx="8" fill="rgba(96,165,250,0.1)" stroke="rgba(96,165,250,0.25)" stroke-width="1" filter="url(#shadow3)"/>
+            <text x="332" y="57" font-family="sans-serif" font-size="8" fill="rgba(96,165,250,0.7)">Conversion</text>
+            <text x="332" y="74" font-family="sans-serif" font-size="16" font-weight="bold" fill="white">94.2%</text>
+            <text x="396" y="74" font-family="sans-serif" font-size="7" fill="#4ADE80">↑6%</text>
+
+            <rect x="436" y="40" width="108" height="50" rx="8" fill="rgba(251,191,36,0.1)" stroke="rgba(251,191,36,0.25)" stroke-width="1" filter="url(#shadow3)"/>
+            <text x="448" y="57" font-family="sans-serif" font-size="8" fill="rgba(251,191,36,0.7)">New Orders</text>
+            <text x="448" y="74" font-family="sans-serif" font-size="16" font-weight="bold" fill="white">3,291</text>
+            <text x="508" y="74" font-family="sans-serif" font-size="7" fill="#4ADE80">↑31%</text>
+
+            <!-- Line chart -->
+            <rect x="88" y="100" width="300" height="128" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+            <text x="100" y="116" font-family="sans-serif" font-size="8" fill="rgba(255,255,255,0.5)">Revenue Trend</text>
+            <!-- Grid lines -->
+            <line x1="100" y1="125" x2="378" y2="125" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+            <line x1="100" y1="145" x2="378" y2="145" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+            <line x1="100" y1="165" x2="378" y2="165" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+            <line x1="100" y1="185" x2="378" y2="185" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+            <line x1="100" y1="218" x2="378" y2="218" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+            <!-- Area fill -->
+            <polygon points="100,218 140,200 180,205 220,185 260,190 300,168 340,175 378,155 378,218" fill="url(#db-area)"/>
+            <!-- Line -->
+            <polyline points="100,218 140,200 180,205 220,185 260,190 300,168 340,175 378,155" fill="none" stroke="url(#db-line)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- Data points -->
+            <circle cx="300" cy="168" r="4" fill="#F093FB" stroke="rgba(255,255,255,0.6)" stroke-width="1.5"/>
+            <circle cx="378" cy="155" r="5" fill="#F5576C" stroke="rgba(255,255,255,0.6)" stroke-width="1.5"/>
+            <!-- Tooltip -->
+            <rect x="330" y="138" width="60" height="22" rx="5" fill="rgba(240,147,251,0.2)" stroke="rgba(240,147,251,0.5)" stroke-width="1"/>
+            <text x="360" y="148" text-anchor="middle" font-family="sans-serif" font-size="7" fill="rgba(255,255,255,0.6)">Nov</text>
+            <text x="360" y="157" text-anchor="middle" font-family="sans-serif" font-size="8" fill="white" font-weight="bold">₹1.2L</text>
+
+            <!-- Bar chart -->
+            <rect x="400" y="100" width="148" height="128" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+            <text x="412" y="116" font-family="sans-serif" font-size="8" fill="rgba(255,255,255,0.5)">By Category</text>
+            <rect x="412" y="178" width="18" height="32" rx="4" fill="rgba(240,147,251,0.7)"/>
+            <rect x="434" y="162" width="18" height="48" rx="4" fill="rgba(96,165,250,0.7)"/>
+            <rect x="456" y="148" width="18" height="62" rx="4" fill="rgba(74,222,128,0.7)"/>
+            <rect x="478" y="155" width="18" height="55" rx="4" fill="rgba(251,191,36,0.7)"/>
+            <rect x="500" y="138" width="18" height="72" rx="4" fill="rgba(240,147,251,0.9)"/>
+            <rect x="522" y="145" width="18" height="65" rx="4" fill="rgba(248,113,113,0.7)"/>
+            <text x="421" y="218" text-anchor="middle" font-family="sans-serif" font-size="6" fill="rgba(255,255,255,0.35)">Jan</text>
+            <text x="443" y="218" text-anchor="middle" font-family="sans-serif" font-size="6" fill="rgba(255,255,255,0.35)">Feb</text>
+            <text x="465" y="218" text-anchor="middle" font-family="sans-serif" font-size="6" fill="rgba(255,255,255,0.35)">Mar</text>
+            <text x="487" y="218" text-anchor="middle" font-family="sans-serif" font-size="6" fill="rgba(255,255,255,0.35)">Apr</text>
+            <text x="509" y="218" text-anchor="middle" font-family="sans-serif" font-size="6" fill="rgba(255,255,255,0.35)">May</text>
+            <text x="531" y="218" text-anchor="middle" font-family="sans-serif" font-size="6" fill="rgba(255,255,255,0.35)">Jun</text>
+          </svg>
+          <div class="proj-thumb-overlay"></div>
+          <span class="proj-thumb-badge">UI/UX</span>
+        </div>
         <div class="proj-body">
           <div class="proj-label">UI/UX Design</div>
           <h3>SaaS Analytics Dashboard</h3>
@@ -399,8 +626,94 @@
           <div class="proj-stack"><span class="stack-tag">Figma</span><span class="stack-tag">React</span><span class="stack-tag">Chart.js</span><span class="stack-tag">Tailwind</span></div>
         </div>
       </div>
+
+      <!-- WhatsApp Bot — Vivid phone UI -->
       <div class="proj-card reveal" style="transition-delay:.2s">
-        <div class="proj-thumb" style="background:linear-gradient(135deg,#431407,#EA580C)"><span class="proj-letter">W</span></div>
+        <div class="proj-thumb">
+          <svg viewBox="0 0 600 240" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block">
+            <defs>
+              <linearGradient id="wa-bg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#11998E"/><stop offset="50%" stop-color="#38EF7D"/><stop offset="100%" stop-color="#11998E"/></linearGradient>
+              <linearGradient id="wa-bubble" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#25D366"/><stop offset="100%" stop-color="#128C7E"/></linearGradient>
+              <filter id="shadow4"><feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="rgba(0,0,0,0.25)"/></filter>
+            </defs>
+            <rect width="600" height="240" fill="url(#wa-bg)"/>
+            <!-- Background pattern -->
+            <circle cx="60" cy="60" r="45" fill="rgba(255,255,255,0.06)"/>
+            <circle cx="540" cy="180" r="60" fill="rgba(255,255,255,0.05)"/>
+            <circle cx="300" cy="220" r="35" fill="rgba(255,255,255,0.04)"/>
+            <!-- Left info panel -->
+            <rect x="20" y="30" width="165" height="180" rx="12" fill="rgba(0,0,0,0.2)" filter="url(#shadow4)"/>
+            <rect x="20" y="30" width="165" height="40" rx="12" fill="url(#wa-bubble)"/>
+            <rect x="20" y="58" width="165" height="12" fill="url(#wa-bubble)"/>
+            <text x="32" y="48" font-family="sans-serif" font-size="10" font-weight="bold" fill="white">🤖 BizBot AI</text>
+            <text x="32" y="60" font-family="sans-serif" font-size="7" fill="rgba(255,255,255,0.75)">Powered by GPT-4</text>
+            <!-- Stats -->
+            <text x="32" y="90" font-family="sans-serif" font-size="8" fill="rgba(255,255,255,0.5)">Conversations Today</text>
+            <text x="32" y="106" font-family="sans-serif" font-size="20" font-weight="bold" fill="white">2,847</text>
+            <rect x="32" y="112" width="50" height="8" rx="4" fill="rgba(74,222,128,0.3)"/>
+            <text x="32" y="119" font-family="sans-serif" font-size="6" fill="#4ADE80">↑ 18% from yesterday</text>
+            <rect x="32" y="128" width="145" height="1" fill="rgba(255,255,255,0.1)"/>
+            <text x="32" y="144" font-family="sans-serif" font-size="7" fill="rgba(255,255,255,0.4)">Response Rate</text>
+            <text x="32" y="158" font-family="sans-serif" font-size="14" font-weight="bold" fill="#4ADE80">99.2%</text>
+            <text x="32" y="172" font-family="sans-serif" font-size="7" fill="rgba(255,255,255,0.4)">Avg Response Time</text>
+            <text x="32" y="186" font-family="sans-serif" font-size="14" font-weight="bold" fill="white">0.8s ⚡</text>
+
+            <!-- Phone mockup -->
+            <rect x="205" y="8" width="190" height="224" rx="22" fill="rgba(0,0,0,0.45)" filter="url(#shadow4)" stroke="rgba(255,255,255,0.12)" stroke-width="1.5"/>
+            <rect x="213" y="22" width="174" height="198" rx="10" fill="#075E54"/>
+            <!-- WhatsApp header -->
+            <rect x="213" y="22" width="174" height="38" rx="10" fill="#128C7E"/>
+            <rect x="213" y="48" width="174" height="12" fill="#128C7E"/>
+            <circle cx="233" cy="41" r="12" fill="rgba(255,255,255,0.2)"/>
+            <text x="233" y="45" text-anchor="middle" font-family="sans-serif" font-size="10" fill="white">🤖</text>
+            <text x="252" y="37" font-family="sans-serif" font-size="9" font-weight="bold" fill="white">BizBot AI</text>
+            <text x="252" y="48" font-family="sans-serif" font-size="7" fill="rgba(255,255,255,0.7)">● Online</text>
+            <!-- Chat background -->
+            <rect x="213" y="60" width="174" height="160" fill="#ECE5DD"/>
+            <!-- Bot message 1 -->
+            <rect x="218" y="66" width="120" height="26" rx="8" fill="white"/>
+            <rect x="218" y="85" width="120" height="8" rx="4" fill="white"/>
+            <text x="224" y="79" font-family="sans-serif" font-size="8" fill="#333">Hi! 👋 How can I help?</text>
+            <text x="318" y="88" font-family="sans-serif" font-size="6" fill="#999">9:31 AM</text>
+            <!-- User message -->
+            <rect x="257" y="100" width="124" height="26" rx="8" fill="#DCF8C6"/>
+            <rect x="257" y="119" width="124" height="8" rx="4" fill="#DCF8C6"/>
+            <text x="263" y="113" font-family="sans-serif" font-size="8" fill="#333">Track order #4521</text>
+            <text x="363" y="122" font-family="sans-serif" font-size="6" fill="#999">9:32 ✓✓</text>
+            <!-- Bot message 2 -->
+            <rect x="218" y="133" width="140" height="36" rx="8" fill="white"/>
+            <rect x="218" y="162" width="140" height="8" rx="4" fill="white"/>
+            <text x="224" y="147" font-family="sans-serif" font-size="7.5" fill="#333">✅ Order #4521 shipped!</text>
+            <text x="224" y="158" font-family="sans-serif" font-size="7" fill="#555">ETA: Tomorrow 3 PM 🚀</text>
+            <text x="338" y="166" font-family="sans-serif" font-size="6" fill="#999">9:32 AM</text>
+            <!-- User message 2 -->
+            <rect x="267" y="178" width="114" height="22" rx="8" fill="#DCF8C6"/>
+            <rect x="267" y="193" width="114" height="7" rx="4" fill="#DCF8C6"/>
+            <text x="273" y="192" font-family="sans-serif" font-size="7.5" fill="#333">Thanks! Great service 🙏</text>
+            <text x="363" y="198" font-family="sans-serif" font-size="6" fill="#999">9:33 ✓✓</text>
+            <!-- Input bar -->
+            <rect x="213" y="210" width="174" height="10" fill="#F0F0F0" rx="5"/>
+            <text x="225" y="218" font-family="sans-serif" font-size="6" fill="#999">Type a message...</text>
+
+            <!-- Right features panel -->
+            <rect x="415" y="30" width="165" height="180" rx="12" fill="rgba(0,0,0,0.2)" filter="url(#shadow4)"/>
+            <text x="430" y="52" font-family="sans-serif" font-size="9" font-weight="bold" fill="white">Features</text>
+            <rect x="425" y="60" width="145" height="20" rx="6" fill="rgba(255,255,255,0.12)"/>
+            <text x="433" y="74" font-family="sans-serif" font-size="8" fill="white">🧠 AI-Powered Replies</text>
+            <rect x="425" y="85" width="145" height="20" rx="6" fill="rgba(255,255,255,0.12)"/>
+            <text x="433" y="99" font-family="sans-serif" font-size="8" fill="white">📦 Order Tracking</text>
+            <rect x="425" y="110" width="145" height="20" rx="6" fill="rgba(255,255,255,0.12)"/>
+            <text x="433" y="124" font-family="sans-serif" font-size="8" fill="white">🎯 Lead Capture</text>
+            <rect x="425" y="135" width="145" height="20" rx="6" fill="rgba(255,255,255,0.12)"/>
+            <text x="433" y="149" font-family="sans-serif" font-size="8" fill="white">🌍 Multi-Language</text>
+            <rect x="425" y="160" width="145" height="20" rx="6" fill="rgba(255,255,255,0.12)"/>
+            <text x="433" y="174" font-family="sans-serif" font-size="8" fill="white">⏱ 24/7 Available</text>
+            <rect x="425" y="185" width="145" height="20" rx="6" fill="rgba(37,211,102,0.3)" stroke="rgba(37,211,102,0.5)" stroke-width="1"/>
+            <text x="497" y="199" text-anchor="middle" font-family="sans-serif" font-size="8" font-weight="bold" fill="white">99.9% Uptime ✅</text>
+          </svg>
+          <div class="proj-thumb-overlay"></div>
+          <span class="proj-thumb-badge">AI Bot</span>
+        </div>
         <div class="proj-body">
           <div class="proj-label">AI Automation</div>
           <h3>Business WhatsApp Bot</h3>
@@ -408,6 +721,7 @@
           <div class="proj-stack"><span class="stack-tag">Node.js</span><span class="stack-tag">Twilio</span><span class="stack-tag">OpenAI</span><span class="stack-tag">n8n</span></div>
         </div>
       </div>
+
     </div>
   </div>
 </section>
@@ -474,20 +788,6 @@
             </div>
             <span class="s-btn-arrow">→</span>
           </a>
-          <!-- Gmail -->
-          <a class="s-btn s-btn-gm"
-             href="mailto:gonupallitejesh2003@gmail.com?subject=Project%20Inquiry%20from%20Portfolio&body=Hi%20Tejesh%2C%0A%0AI%20saw%20your%20portfolio%20and%20I%27m%20interested%20in...">
-            <div class="s-btn-icon">
-              <svg viewBox="0 0 24 24" width="19" height="19">
-                <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 010 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.910 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/>
-              </svg>
-            </div>
-            <div class="s-btn-text">
-              <div class="s-btn-label">Send an Email</div>
-              <div class="s-btn-val">gonupallitejesh2003@gmail.com</div>
-            </div>
-            <span class="s-btn-arrow">→</span>
-          </a>
 
         </div>
       </div>
@@ -511,7 +811,7 @@
           │  5. Replace YOUR_FORM_ID below with it      │
           └─────────────────────────────────────────────┘
           -->
-          <form id="contactForm" action="https://formspree.io/f/mykbzeqn" method="POST">
+          <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
             <input type="hidden" name="_subject" value="🚀 New Portfolio Inquiry — Tejesh">
             <input type="hidden" name="submitted_at" id="subDate">
 
@@ -570,12 +870,12 @@
     <div class="footer-links">
       <a href="https://wa.me/919032828543" target="_blank">WhatsApp</a>
       <a href="https://linkedin.com/in/your-linkedin-username" target="_blank">LinkedIn</a>
-      <a href="mailto:gonupallitejesh2003@gmail.com">Gmail</a>
+      <a href="/cdn-cgi/l/email-protection#f99e96978c89989595908d9c939c8a91cbc9c9cab99e94989095d79a9694">Gmail</a>
     </div>
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   // NAV scroll
   window.addEventListener('scroll',()=>{
     document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>40)
